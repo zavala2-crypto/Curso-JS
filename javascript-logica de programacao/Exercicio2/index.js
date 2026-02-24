@@ -1,39 +1,100 @@
 var res = document.querySelector('.resultado')
 const data = new Date()
- const diaSemana = data.getDay()
- const dia = data.getDate()
- const mes = data.getMonth()
- const ano = data.getFullYear()
- const houra = data.getHours()
- const min = data.getMinutes()
+//  const dia = data.getDate()
+//  const ano = data.getFullYear()
+//  const houra = data.getHours()
+//  const min = data.getMinutes()
+
+
+function getDiadasemana(diaSemana) {
+    let texto;
 
  switch (diaSemana) {
     case 0:
-        console.log('Domingo')
+        texto ='Domingo'
         break;
     case 1:
-        res.innerHTML += 'Segunda-feira, ' +dia+ ' de ' +mes+ ' de ' +ano+ '<br>' +houra+ ':' +min
+       texto = 'Segunda-feira'
         break;
     case 2:
-        console.log('Terca-feira')
+        texto ='Terca-feira'
         break;
      case 3:
-        console.log('Quarta-feira')
+        texto ='Quarta-feira'
         break;
     case 4:
-        console.log('Quinta-feira')
+        texto ='Quinta-feira'
         break;
     case 5:
-        console.log('Sexta-feira')
+        texto ='Sexta-feira'
         break;
     case 6:
-        console.log('Sabada')
+        texto ='Sabada'
         break;
         
     default:
-        console.log('Dia Invalido!')
+        texto = 'Dia Invalido!'
         break;
  }
- 
+ return texto;
+}
 
+
+function getmes(mes) {
+    let mesAno;
+ switch (mes) {
+    case 0:
+        mesAno = 'Janeiro'
+        break;
+     case 1:
+        mesAno = 'Fevereiro'
+        break;
+    case 2:
+        mesAno = 'Marco'
+        break;
+    case 3:
+        mesAno = 'Abril'
+        break;
+    case 4:
+        mesAno = 'Maio'
+        break;
+    case 5:
+        mesAno = 'Junho'
+        break;
+    case 6:
+        mesAno = 'Julho'
+        break;
+    case 7:
+        mesAno = 'Agosto'
+        break;
+    case 8:
+        mesAno = 'Setembro'
+        break;
+    case  9:
+        mesAno = 'Outubro'
+        break;
+    case 10:
+        mesAno = 'Novembro'
+        break;
+     case 11:
+        mesAno = 'Dezembro'
+        break;
+    default:
+        mesAno = 'INVALIDO'
+        break;
+        
+}
+return mesAno;
+}
+
+function criaDados(data) {
+
+    const diaSemana = data.getDay();
+    const mes = data.getMonth();
+
+    const adia = getDiadasemana(diaSemana);
+    const sem =  getmes(mes);
+    return adia+ ', ' +data.getDate()+ ' de ' +sem+ ' de ' +data.getFullYear()+ '<br>' +data.getHours()+ ':' +data.getMinutes()
+}
+res.innerHTML = criaDados(data)
     
